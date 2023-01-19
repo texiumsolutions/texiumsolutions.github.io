@@ -4,6 +4,7 @@ import Home from './Home/Home';
 import Navbar from './Home/Navbar/Navbar';
 import Login from './Home/Navbar/Login';
 import Signup from './Home/Navbar/Signup';
+// import Footer from './Home/Footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
       </Routes>
+      {/* <Footer></Footer> */}
     </div>
   );
 }
