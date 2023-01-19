@@ -1,5 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import auth from '../../firebase.init';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import Loading from "../../Shared/Loading";
+import { Link } from "react-router-dom";
+
 
 const Login = () => {
   const {
@@ -7,11 +12,31 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  //   if (user){
-  //     console.log(user)
-  //   }
+
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
+
+  
+  let signInErrorMessage;
+
+  if(loading){
+    return <Loading></Loading>
+  }
+
+  if(error){
+    signInErrorMessage = <p className="text-red-500"><small>{error?.message}</small></p>
+  }
+  if(user){
+    console.log(user);
+  }
+  
   const onSubmit = (data) => {
     console.log(data);
+    signInWithEmailAndPassword(data.email, data.password);
   };
 
   return (
@@ -96,13 +121,14 @@ const Login = () => {
             </div>
 
             {/* Submit Button  */}
-
+            {signInErrorMessage}
             <input
               className="btn w-full max-w-xs btn-info text-black"
               type="submit"
               value="Login"
             />
           </form>
+          <p className="p-2">Don't have an account? <Link className="text-info" to="/signup">Sign Up here</Link></p>
         </div>
       </div>
     </div>
