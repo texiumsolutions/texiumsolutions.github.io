@@ -40,7 +40,7 @@ const Signup = () => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({displayName: data.name});
         console.log("Update done!");
-        navigate("/");
+        navigate("/dashboard");
 
       };
     return (
