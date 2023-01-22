@@ -1,6 +1,5 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Home from './Home/Home';
 import Login from './Home/Navbar/Login';
 import Signup from './Home/Navbar/Signup';
 import Dashboard from './Shared/Dashboard/Dashboard';
@@ -18,8 +17,7 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
         <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
         <Route path='/internalDb' element={<InternalDB></InternalDB>}></Route>
