@@ -163,7 +163,7 @@ const Signup = () => {
                 value="Sign Up"
               />
             </form>
-            <p className="p-2">Already have an account? <Link className="text-info" to="/login">Login here</Link></p>
+            <p className="p-2">Already have an account? <Link className="text-info" to="/">Login here</Link></p>
           </div>
         </div>
       </div>
