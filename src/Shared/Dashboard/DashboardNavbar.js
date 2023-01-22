@@ -21,58 +21,68 @@ const DashboardNavbar = () => {
     signInErrorMessage = <p className="text-red-500"><small>{error?.message}</small></p>
   }
   return (
-    <div className="flex bg-blue-800 justify-between">
-      <div className="flex pt-5 font-semibold">
-
+    <div className="flex bg-blue-800 justify-between h-[40px]">
+      <div className="flex font-semibold">
         <div class="dropdown">
-          <label tabindex="0" className="">
-            <div className="pt-1 pl-4">
-              <Link to="/dashmenu" className="text-white text-2xl">
+          <label tabindex="0">
+            <div className="pl-3 pt-3">
+              <Link to="/dashmenu" className="text-white text-xl">
                 <AiOutlineMenu></AiOutlineMenu>
               </Link>
             </div>
           </label>
-          <div className="flex justify-start items-start pt-5">
-            <ul tabindex="0" className="menu menu-compact dropdown-content shadow bg-blue-800 h-[645px] w-16">
-              <Link to="/dashhome" className=" text-white mx-4 pt-8 pb-4 text-2xl">
+          <div className="flex justify-start items-start">
+            <ul tabindex="0" className="menu menu-compact dropdown-content shadow bg-blue-800 h-[681px] w-12">
+              <Link to="/dashhome" className=" text-white mx-2 pt-12 pb-4 text-2xl">
                 <FaHome></FaHome>
               </Link>
-              <Link to="/dashhome" className=" text-white mx-4 pt-4 pb-4 text-2xl">
+              <Link to="/dashhome" className=" text-white mx-2 pt-4 pb-4 text-2xl">
                 <AiFillFileAdd></AiFillFileAdd>
               </Link>
-              <Link to="/dashhome" className=" text-white mx-4 pt-4 pb-4 text-2xl">
+              <Link to="/dashhome" className=" text-white mx-2 pt-4 text-2xl">
                 <AiFillSetting></AiFillSetting>
               </Link>
             </ul>
           </div>
         </div>
-
-        <NavLink to="/internalDb" exact activeClassName="active" className="text-white mx-4 text-xl ml-10 nav-link">
-          Internal DB
-        </NavLink>
-        <NavLink to="/career" exact activeClassName="active" className="text-white mx-4 text-xl nav-link">
-          Career Builder
-        </NavLink>
-        <NavLink to="/monster" exact activeClassName="active" className="text-white mx-4 text-xl nav-link">
-          Monster
-        </NavLink>
-        <NavLink to="/dice" exact activeClassName="active" className=" text-white mx-4 text-xl nav-link">
-          Dice
-        </NavLink>
-        <NavLink to="/ints" exact activeClassName="active" className=" text-white mx-4 text-xl nav-link">
-          Integrated Search
-        </NavLink>
+        <div className="flex justify-center items-center">
+          <div exact activeClassName="active">
+            <NavLink to="/internalDb" className="text-white mx-4 text-1xl ml-10">
+              Internal DB
+            </NavLink>
+          </div>
+          <div exact activeClassName="active">
+            <NavLink to="/career" className="text-white mx-4 text-1xl">
+              Career Builder
+            </NavLink>
+          </div>
+          <div exact activeClassName="active">
+            <NavLink to="/monster" className="text-white mx-4 text-1xl">
+              Monster
+            </NavLink>
+          </div>
+          <div exact activeClassName="active">
+            <NavLink to="/dice" className=" text-white mx-4 text-1xl">
+              Dice
+            </NavLink>
+          </div>
+          <div exact activeClassName="active">
+            <NavLink to="/ints" className=" text-white mx-4 text-1xl">
+              Integrated Search
+            </NavLink>
+          </div>
+        </div>
       </div>
       {signInErrorMessage}
-      <div className="flex">
-        <p className="text-white font-semibold py-5">Sumaya</p>
-        <div class="avatar py-4 mx-4">
-          <div class="w-10 h-10  rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+      <div className="flex justify-center items-center">
+        <p className="text-white font-semibold">Sumaya</p>
+        <div class="avatar mx-4">
+          <div class="w-6 h-6  rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
             <img alt=" " src="https://placeimg.com/192/192/people" />
           </div>
         </div>
-        <div className='pt-5 mx-4'>
-          {user ? <Link className='text-white font-semibold' to="/" onClick={logout}>SignOut</Link> : <Link className='text-white font-semibold' to="/">Login</Link>}
+        <div className='mx-4'>
+          {user ? <Link className='text-white text-1xl font-semibold' to="/" onClick={logout}>SignOut</Link> : <Link className='text-white text-1xl font-semibold' to="/">Login</Link>}
         </div>
 
       </div>
