@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from "../../Shared/Loading";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Login = () => {
@@ -20,7 +20,7 @@ const Login = () => {
     error,
   ] = useSignInWithEmailAndPassword(auth);
 
-  
+  const navigate = useNavigate();
   let signInErrorMessage;
 
   if(loading){
@@ -38,6 +38,7 @@ const Login = () => {
   const onSubmit = (data) => {
     console.log(data);
     signInWithEmailAndPassword(data.email, data.password);
+    navigate("/dashboard");
   };
 
   return (
