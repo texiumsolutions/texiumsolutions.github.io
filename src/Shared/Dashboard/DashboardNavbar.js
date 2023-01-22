@@ -1,9 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AiOutlineMenu, AiFillFileAdd, AiFillSetting } from "react-icons/ai";
 import { FaHome } from "react-icons/fa";
+import { signOut } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import Loading from "../Loading";
+import './DashboardNavbar.css';
 
 const DashboardNavbar = () => {
+  const [user, loading, error] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+  };
+  let signInErrorMessage;
+  if (loading) {
+    return <Loading></Loading>
+  }
+  if (error) {
+    signInErrorMessage = <p className="text-red-500"><small>{error?.message}</small></p>
+  }
   return (
     <div className="flex bg-blue-800 justify-between">
       <div className="flex pt-5 font-semibold">
@@ -27,32 +43,38 @@ const DashboardNavbar = () => {
               <Link to="/dashhome" className=" text-white mx-4 pt-4 pb-4 text-2xl">
                 <AiFillSetting></AiFillSetting>
               </Link>
-              <div class="avatar pl-2 pt-[400px]">
-                <div class="w-8 h-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                  <img alt=" " src="https://placeimg.com/192/192/people" />
-                </div>
-              </div>
             </ul>
           </div>
         </div>
-        <Link to="/dashhome" className=" text-white mx-4 pl-4 text-2xl">
-          <FaHome></FaHome>
-        </Link>
-        <Link to="/internalDb" className=" text-white mx-4 text-xl">
+
+        <NavLink to="/internalDb" exact activeClassName="active" className="text-white mx-4 text-xl ml-10 nav-link">
           Internal DB
-        </Link>
-        <Link to="/career" className=" text-white mx-4 text-xl">
+        </NavLink>
+        <NavLink to="/career" exact activeClassName="active" className="text-white mx-4 text-xl nav-link">
           Career Builder
-        </Link>
-        <Link to="/monster" className=" text-white mx-4 text-xl">
+        </NavLink>
+        <NavLink to="/monster" exact activeClassName="active" className="text-white mx-4 text-xl nav-link">
           Monster
-        </Link>
-        <Link to="/dice" className=" text-white mx-4 text-xl">
+        </NavLink>
+        <NavLink to="/dice" exact activeClassName="active" className=" text-white mx-4 text-xl nav-link">
           Dice
-        </Link>
-        <Link to="/ints" className=" text-white mx-4 text-xl">
+        </NavLink>
+        <NavLink to="/ints" exact activeClassName="active" className=" text-white mx-4 text-xl nav-link">
           Integrated Search
-        </Link>
+        </NavLink>
+      </div>
+      {signInErrorMessage}
+      <div className="flex">
+        <p className="text-white font-semibold py-5">Sumaya</p>
+        <div class="avatar py-4 mx-4">
+          <div class="w-10 h-10  rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <img alt=" " src="https://placeimg.com/192/192/people" />
+          </div>
+        </div>
+        <div className='pt-5 mx-4'>
+          {user ? <Link className='text-white font-semibold' to="/" onClick={logout}>SignOut</Link> : <Link className='text-white font-semibold' to="/">Login</Link>}
+        </div>
+
       </div>
     </div>
   );
