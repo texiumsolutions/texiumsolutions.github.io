@@ -1,0 +1,9 @@
+.active :is(.nav-btn) {
+    color: #f5e276;
+  }
+
+  .search-hover:hover{
+    color: black;
+    background-color: skyblue;
+    
+  }
