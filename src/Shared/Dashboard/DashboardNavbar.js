@@ -21,17 +21,17 @@ const DashboardNavbar = () => {
     signInErrorMessage = <p className="text-red-500"><small>{error?.message}</small></p>
   }
   return (
-    <div className="flex bg-blue-800 justify-between h-[40px]">
+    <div className="flex bg-blue-800 justify-between h-[60px]">
       <div className="flex font-semibold">
         <div class="dropdown">
           <label tabindex="0">
-            <div className="pl-3 pt-3">
+            <div className="pl-3 p-5">
               <Link to="/dashmenu" className="text-white text-xl">
                 <AiOutlineMenu></AiOutlineMenu>
               </Link>
             </div>
           </label>
-          <div className="flex justify-start items-start">
+          {/* <div className="flex justify-start items-start">
             <ul tabindex="0" className="menu menu-compact dropdown-content shadow bg-blue-800 h-[681px] w-12">
               <Link to="/dashhome" className=" text-white mx-2 pt-12 pb-4 text-2xl">
                 <FaHome></FaHome>
@@ -43,7 +43,7 @@ const DashboardNavbar = () => {
                 <AiFillSetting></AiFillSetting>
               </Link>
             </ul>
-          </div>
+          </div> */}
         </div>
         <div className="flex justify-center items-center">
           <div exact activeClassName="active">
@@ -74,10 +74,10 @@ const DashboardNavbar = () => {
         </div>
       </div>
       {signInErrorMessage}
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center ">
         <p className="text-white font-semibold">Sumaya</p>
         <div class="avatar mx-4">
-          <div class="w-6 h-6  rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+          <div class="w-6 h-6  rounded-full ">
             <img alt=" " src="https://placeimg.com/192/192/people" />
           </div>
         </div>
