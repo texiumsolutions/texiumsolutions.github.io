@@ -48,27 +48,27 @@ const DashboardNavbar = () => {
         <div className="flex justify-center items-center">
           <div exact activeClassName="active">
             <NavLink to="/internalDb" className="text-white mx-4 text-1xl ml-10">
-              Internal DB
+              Extraction
             </NavLink>
           </div>
           <div exact activeClassName="active">
             <NavLink to="/career" className="text-white mx-4 text-1xl">
-              Career Builder
+              Transformation
             </NavLink>
           </div>
           <div exact activeClassName="active">
             <NavLink to="/monster" className="text-white mx-4 text-1xl">
-              Monster
+              Injection
             </NavLink>
           </div>
           <div exact activeClassName="active">
             <NavLink to="/dice" className=" text-white mx-4 text-1xl">
-              Dice
+              Reports
             </NavLink>
           </div>
           <div exact activeClassName="active">
             <NavLink to="/ints" className=" text-white mx-4 text-1xl">
-              Integrated Search
+              Dashboard
             </NavLink>
           </div>
         </div>
